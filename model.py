@@ -256,7 +256,7 @@ class MGDB(torch.nn.Module):
         # out5 = self.bn4(out5)
         out8=self.CA(out8)
         return out8
-class BSWN(nn.Module):
+class ABSGN(nn.Module):
     def __init__(self, input_dim=3, dim=32):
         super(BSWN,self).__init__()
         self.DWT = DWTForward(J=1, wave='haar').cuda()  # J是分解的层数，wave为选择的小波类型
