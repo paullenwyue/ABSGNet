@@ -20,10 +20,10 @@ from torch.utils.data import DataLoader
 import lib.pytorch_ssim as pytorch_ssim
 from lib.data import get_training_set, is_image_file, get_Low_light_training_set
 from lib.utils import TVLoss, print_network,MSSSIM
-from model import BSWN
+from model import ABSGN
 import lpips
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
-Name_Exp = 'BSWN'
+Name_Exp = 'ABSGN'
 exp = Experiment(Name_Exp)
 exp.add_source_file("train.py")
 exp.add_source_file("model.py")
@@ -133,7 +133,7 @@ def main(opt, _run):
     training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, batch_size=opt.batchSize,
                                       pin_memory=True, shuffle=True, drop_last=False)
     print('===> Build model')
-    lighten =BSWN()
+    lighten =ABSGN()
     lighten = torch.nn.DataParallel(lighten)#DataParallel会自动帮我们将数据切分load到相应的GPU中，将模型复制到相应的GPU中，进行正向传播计算梯度并汇总
     #lighten.load_state_dict(torch.load("DLN_journal.pth", map_location=lambda storage, loc: storage), strict=True)
 #torch.nn.Module类提供了将模型参数的作为字典映射保存和加载的方法，strict=True,要求预训练权重层数的键值与新构建的模型中的权重层数名称完全吻合
