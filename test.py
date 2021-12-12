@@ -1,7 +1,7 @@
 from __future__ import print_function
 import argparse
 import torch
-from model import BSWN
+from model import ABSGN
 import torchvision.transforms as transforms
 import numpy as np
 from os.path import join
@@ -51,7 +51,7 @@ if cuda:
     torch.cuda.manual_seed(opt.seed)
 print('===> Building model ', opt.model_type)
 os.environ['CUDA_VISIBLE_DEVICES']='0'
-model = BSWN()
+model = ABSGN()
 #model = torch.nn.DataParallel(model, device_ids=gpus_list)
 model.load_state_dict(torch.load(
     opt.modelfile))
