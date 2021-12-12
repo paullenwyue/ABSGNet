@@ -1,5 +1,5 @@
-# BSWNet
-This is the source code of Broadly Self-guided Wavelet NetWork for low-light image enhancement
+# ABSGNet
+This is the source code of Attention based Broadly Self-guided NetWork for low-light image enhancement
 
 
 pip install torch numpy joblib scikit-image pillow IQA_pytorch scared opencv-python
