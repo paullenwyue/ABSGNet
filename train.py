@@ -181,7 +181,7 @@ def main(opt, _run):
             pred_t = lighten(LL_t)
             ssim_loss = 1 - ssim(pred_t, NL_t)
             l1_loss= L1_criterion(pred_t,NL_t)
-            loss = 0.16*ssim_loss + 0.84 * l1_loss
+            loss = 0.15*ssim_loss + 0.85 * l1_loss
 
             loss.backward()
             optimizer.step()
